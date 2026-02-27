@@ -23,4 +23,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.actor }}/testingargo-app:${{ github.sha }}
+          tags: ghcr.io/${{ github.actor }}/testingargo-app:latest
