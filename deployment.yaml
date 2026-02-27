@@ -12,9 +12,12 @@ spec:
       labels:
         app: testingargo
     spec:
+      # Is secret ka naam vahi rakhna jo tumne terminal se banaya hai
+      imagePullSecrets:
+        - name: ghcr-secret
       containers:
       - name: node-app
-        image: ghcr.io/amansinghalkeen/testingargo-app:latest
+        image: ghcr.io/amansinghalkeen/etribunals-app:latest
         ports:
         - containerPort: 3000
 ---
