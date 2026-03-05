@@ -1,0 +1,7 @@
+metrics:
+  enabled: true  
+service:
+  type: NodePort
+  ports:
+    http: 80
+    metrics: 9117 
