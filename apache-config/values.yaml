@@ -1,5 +1,5 @@
 image:
-  repository: bitnami/apache
+  repository: httpd
   tag: 2.4.62-debian-12-r9
   pullPolicy: IfNotPresent  
 metrics:
