@@ -1,5 +1,5 @@
 image:
-  tag: 16.4.0-debian-12-r13 # 'r14' ki jagah 'r13' ya sirf '16.4.0' kar do
+  tag: 16.4.0
 primary:
   persistence:
     enabled: true
