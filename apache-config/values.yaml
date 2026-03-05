@@ -1,17 +1,28 @@
-common:
-  skipInitContainers: true
-containerPorts:
-  http: 80
 global:
   security:
     allowInsecureImages: true
+
 image:
   repository: httpd
-  tag: 2.4
-  pullPolicy: IfNotPresent  
-metrics:
-  enabled: true
+  tag: "2.4"
+  pullPolicy: IfNotPresent
+
+containerPorts:
+  http: 80
+
 service:
   type: NodePort
   nodePorts:
     http: 30002
+
+common:
+  skipInitContainers: true
+
+volumePermissions:
+  enabled: false
+
+cloneStaticSiteFromGit:
+  enabled: false
+
+metrics:
+  enabled: false
