@@ -1,8 +1,10 @@
+image:
+  tag: 16.4.0-debian-12-r13 # 'r14' ki jagah 'r13' ya sirf '16.4.0' kar do
 primary:
   persistence:
     enabled: true
     size: 5Gi
   auth:
     database: new_project
-    password: "postgres"
-    username: "postgres"
+    password: "aman_password"
+    username: "aman_admin"
