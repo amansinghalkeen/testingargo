@@ -1,3 +1,7 @@
+common:
+  skipInitContainers: true
+containerPorts:
+  http: 80
 global:
   security:
     allowInsecureImages: true
