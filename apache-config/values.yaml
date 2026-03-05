@@ -1,7 +1,8 @@
+image:
+  tag: latest
 metrics:
-  enabled: true  
+  enabled: true
 service:
   type: NodePort
-  ports:
-    http: 80
-    metrics: 9117 
+  nodePorts:
+    http: 30002
