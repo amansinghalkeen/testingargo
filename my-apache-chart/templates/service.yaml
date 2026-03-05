@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "my-apache-chart.fullname" . }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: {{ .Values.service.nodePort }}
+      name: http
+    - port: 9117
+      targetPort: 9117
+      name: metrics
+  selector:
+    app: apache
