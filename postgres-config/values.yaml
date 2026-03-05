@@ -1,0 +1,8 @@
+primary:
+  persistence:
+    enabled: true
+    size: 5Gi
+  auth:
+    database: new_project
+    password: "postgres"
+    username: "postgres"
