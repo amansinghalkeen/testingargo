@@ -1,5 +1,7 @@
 image:
+  repository: bitnami/apache
   tag: latest
+  pullPolicy: IfNotPresent  
 metrics:
   enabled: true
 service:
