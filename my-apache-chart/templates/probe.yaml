@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: {{ include "my-apache-chart.fullname" . }}-uptime
+  labels:
+    release: my-monitor # Ye tumhare prometheus ka release name hai
+spec:
+  jobName: apache-uptime-check
+  prober:
+    # Blackbox exporter ki service ka path (monitoring namespace mein)
+    url: my-monitor-prometheus-blackbox-exporter.monitoring.svc.cluster.local:9115
+  targets:
+    staticConfig:
+      static:
+      # Tumhari service ka internal DNS name
+      - http://{{ include "my-apache-chart.fullname" . }}.default.svc.cluster.local
+  module: http_2xx # Check karega ki status code 200 OK hai ya nahi
