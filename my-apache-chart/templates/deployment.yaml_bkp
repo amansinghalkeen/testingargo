@@ -17,17 +17,8 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 80
-              name: http
-          volumeMounts:
-            - name: config-volume
-              mountPath: /usr/local/apache2/conf/extra/status.conf
-              subPath: status.conf
+        # Sidecar Container for Monitoring (Bhai, ye Grafana ke liye hai)
         - name: exporter
           image: bitnami/apache-exporter:latest
           ports:
             - containerPort: 9117
-              name: metrics
-      volumes:
-        - name: config-volume
-          configMap:
-            name: {{ include "my-apache-chart.fullname" . }}-config
