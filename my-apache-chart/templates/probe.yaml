@@ -7,7 +7,7 @@ metadata:
 spec:
   jobName: apache-uptime-check
   prober:
-    # Nayi install hui service ka DNS name
+    # Tumhari exact service name yahan hai
     url: blackbox-exporter-prometheus-blackbox-exporter.monitoring.svc.cluster.local:9115
   targets:
     staticConfig:
