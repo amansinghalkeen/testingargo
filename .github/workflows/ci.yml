@@ -1,7 +1,7 @@
 name: CI-Pipeline
 
 on:
-  workflow_dispatch: # Ye line manual button enable kar degi
+  workflow_dispatch:
     inputs:
       reason:
         description: 'execute pipeline manually'
