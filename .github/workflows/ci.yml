@@ -7,6 +7,7 @@ on:
         description: 'execute pipeline manually'
         required: false
         default: 'Manual Build'
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -21,9 +22,24 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.ACTION_TOKEN }}
 
+      # 1. Docker Image Build and Push (Build Number)
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.actor }}/testingargo-app:latest
+          tags: ghcr.io/${{ github.actor }}/testingargo-app:v${{ github.run_number }}
+
+      # 2. change build no. in deployment file 
+      - name: Update Deployment YAML
+        run: |
+          sed -i "s|image: ghcr.io/${{ github.actor }}/testingargo-app:.*|image: ghcr.io/${{ github.actor }}/testingargo-app:v${{ github.run_number }}|" deployment.yaml
+
+      # 3. push image in ghcr with new tag for argocd
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add deployment.yaml
+          git commit -m "Build #${{ github.run_number }}: update image tag to v${{ github.run_number }}"
+          git push
