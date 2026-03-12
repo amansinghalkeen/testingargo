@@ -7,7 +7,6 @@ metadata:
 spec:
   jobName: apache-uptime-check
   prober:
-    # Tumhari exact service name yahan hai
     url: blackbox-exporter-prometheus-blackbox-exporter.monitoring.svc.cluster.local:9115
   targets:
     staticConfig:
