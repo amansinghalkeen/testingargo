@@ -44,4 +44,5 @@ jobs:
           git config --global user.email "action@github.com"
           git add deployment.yaml
           git commit -m "Build #${{ github.run_number }}: update image tag to v${{ github.run_number }}"
-          git push
+          git pull --rebase origin main 
+          git push origin main 
