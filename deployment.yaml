@@ -12,7 +12,6 @@ spec:
       labels:
         app: testingargo
     spec:
-      # Is secret ka naam vahi rakhna jo tumne terminal se banaya hai
       imagePullSecrets:
         - name: ghcr-secret
       containers:
