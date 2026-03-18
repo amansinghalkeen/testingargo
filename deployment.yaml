@@ -16,7 +16,7 @@ spec:
         - name: ghcr-secret
       containers:
       - name: node-app
-        image: ghcr.io/amansinghalkeen/testingargo-app:v14
+        image: ghcr.io/amansinghalkeen/testingargo-app:v15
         ports:
         - containerPort: 3000
 ---
