@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: {{ include "my-apache-chart.fullname" . }}-uptime
+  labels:
+    release: my-monitor
+spec:
+  jobName: apache-uptime-check
+  prober:
+    url: blackbox-exporter-prometheus-blackbox-exporter.monitoring.svc.cluster.local:9115
+  targets:
+    staticConfig:
+      static:
+      - http://{{ include "my-apache-chart.fullname" . }}.default.svc.cluster.local
+  module: http_2xx
